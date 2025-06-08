@@ -19,18 +19,19 @@
 <body>
     <div id="emulator"></div>
 
-    <script src="https://unpkg.com/v86/build/libv86.js"></script>
-    <script>
-        var emulator = new V86Starter({
-            wasm_path: "v86/build/v86.wasm",
-            memory_size: 256 * 1024 * 1024,    // 256MB RAM
-            bios: { url: "seabios.bin" },
-            vga_bios: { url: "vgabios.bin" },
-            hda: { url: "https://drive.google.com/uc?export=download&id=1AG3BDQX2Ws6A909lfC_yyOP6w-kT8sXp" },
+    <script type="module">
+    import { V86Starter } from "https://unpkg.com/v86@0.5.120/build/libv86.js";
+
+    const emulator = new V86Starter({
+        wasm_path: "https://unpkg.com/v86@0.5.120/build/v86.wasm",
+        memory_size: 256 * 1024 * 1024,
+        bios: { url: "seabios.bin" },
+        vga_bios: { url: "vgabios.bin"},
+        hda: { url: "https://drive.google.com/uc?export=download&id=1AG3BDQX2Ws6A909lfC_yyOP6w-kT8sXp" },
             screen_container: document.getElementById("emulator"),
-            autostart: true,
-            console: true
-        });
-    </script>
+        autostart: true,
+        console: true
+    });
+</script>
 </body>
 </html>
