@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bagel Terminal Arch Linux</title>
+  <style>
+    body, html {
+      margin: 0; height: 100%; background: #000;
+      display: flex; justify-content: center; align-items: center;
+    }
+    #emulator {
+      width: 1024px; height: 768px;
+      border: 2px solid #666;
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+  <div id="emulator"></div>
+
+  <script src="v86/build/libv86.js"></script>
+  <script>
+    // Create the emulator instance
+    var emulator = new V86Starter({
+      wasm_path: "v86/build/v86.wasm",
+      memory_size: 512 * 1024 * 1024,
+      bios: { url: "bios.bin" },
+      vga_bios: { url: "vgabios.bin" },
+      hda: { url: "archlinux.img" },
+      screen_container: document.getElementById("emulator"),
+      autostart: true
+    });
+  </script>
+</body>
+</html>
