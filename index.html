@@ -21,15 +21,15 @@
 
   <script src="v86/build/libv86.js"></script>
   <script>
-    // Create the emulator instance
     var emulator = new V86Starter({
       wasm_path: "v86/build/v86.wasm",
-      memory_size: 512 * 1024 * 1024,
-      bios: { url: "bios.bin" },
+      memory_size: 256 * 1024 * 1024,  // 256MB RAM
+      bios: { url: "seabios.bin" },
       vga_bios: { url: "vgabios.bin" },
       hda: { url: "archlinux.img" },
       screen_container: document.getElementById("emulator"),
-      autostart: true
+      autostart: true,
+      console: true
     });
   </script>
 </body>
